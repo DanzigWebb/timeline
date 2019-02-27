@@ -1,0 +1,113 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+// код проекта
+	
+
+.timeline
+	padding: $gutter*2 0
+	+media-breakpoint-down(xs)
+		padding: $gutter*2 5%
+	&-item
+		padding: $gutter/2 0
+		position: relative
+		&:before
+			content: "\f192"
+			font-family: "Font Awesome 5 Free"
+			font-weight: 900
+			color: $accent
+			background-color: $gray
+			width: 1px
+			height: 100%
+			position: absolute
+			line-height: 450%
+			text-indent: -7px
+
+		&:nth-child(odd)
+			text-align: right
+			padding-right: 90px + $gutter
+			.timeline-item__img
+				right: $gutter
+			&:before
+				right: 0
+			+media-breakpoint-down(xs)
+				text-align: left
+				padding-left: 90px + $gutter
+				padding-right: 0
+				.timeline-item__img
+					left: $gutter
+				&:before
+					left: 0
+
+		&:nth-child(even)
+			+make-col-offset(6)
+			padding-left: 90px + $gutter
+			.timeline-item__img
+				left: $gutter
+			&:before
+				left: -1px
+			+media-breakpoint-down(xs)
+				+make-col-offset(0)
+				&:before
+					right: 0
+
+
+		&__img 
+			width: 74px
+			height: 74px
+			border-radius: 100%
+			border: 5px $gray solid
+			overflow: hidden
+			position: absolute
+		&__txt 
+			line-height: 1.6
+			margin: 4px 0 0 0
+			font-weight: 500
+			span
+				display: block
+				color: $accent 
+				font-size: 12px
+				margin-top: 5px
+
+			
+
+// конец кода проекта
+
+// всегда внизу
+@import "media"
